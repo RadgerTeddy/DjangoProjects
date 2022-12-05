@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}FRP Shear Wall Design{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top:30px">
+    <div class="fakeimg">
+        {% load static %}
+        <img src="{% static 'image/wall.jpg' %}" style="width:500px;height:400px;"/>
+    </div>
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="row">
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                <sup>{{ field.help_text }}</sup>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+            <div class="col-md-4 pull-left">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-md btn-primary">CALCULATE</button>
+        <br>
+        <center>
+            <div class="container pt-3 my-3 border bg-primary text-white text-center">
+                {% for field in frpwallshear %}
+                <p>{{ field }}</p>
+                {% endfor %}
+            </div>
+        </center>
+    </form>
+</div>
+
+{% endblock content %}

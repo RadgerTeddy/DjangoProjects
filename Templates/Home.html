@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}@FRPSRDesign{% endblock %}
+
+{% block content %}
+
+{% csrf_token %}
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>About Me</h2>
+      <h5>Engr. Radger Teddy Manuel</h5>
+      <div class="fakeimg">
+        {% load static %}
+        <img src="{% static 'image/TeddyProfilePicture.jpg' %}" style="width:100px;height:100px;"/>
+      </div>
+      <p>Radger Teddy is a structural engineer with experience in designing residential, commercial and industrial
+        structures. He has experience in structural cost estimation of residential, commercial and industrial
+        buildings. His experiences include managing a team of structural engineers and drafters, mentors junior
+        engineers, checking of steel and concrete calculation, and reviewing structural shop and fabrication drawings.
+      </p>
+      <p>He is also a part-time college instructor at Bulacan State University, College of Engineering, Civil
+        Engineering Department, handling mathematics and some major subjects. </p>
+      <h3>General Design Considerations</h3>
+      <ul>
+        <li>Compressive strength of the FRP reinforcement was neglected</li>
+        <li>Design principles were based on ACI 318 limit state </li>
+        <li>Strengthening limits is only for live load not exceeding 730 kg/m2 (7.16 kPa)</li>
+        <li>Selection of FRP System</li>
+        <li><img src="{% static 'image/selection.jpg' %}" style="width:300px;height:150px;"/></li>
+        <li>The current member being strengthened's size, internal reinforcing steel configuration, and material qualities are used in design calculations</li>
+        <li>A plane section before loading stays plane after loading since the strains in the steel reinforcement and concrete are directly proportional to their distance from the neutral axis</li>
+        <li>There is no relative slip between the concrete and external FRP reinforcement</li>
+        <li>Since the adhesive layer is very thin and only slightly varies in thickness, shear deformation inside the adhesive layer is disregarded</li>
+        <li>Concrete maximum compressive strain ε_cu is 0.003</li>
+        <li>Concrete tensile strength is neglected</li>
+        <li>A linear stress-strain relationship between FRP reinforcement and its failure</li>
+        <li>A cracked section elastic analysis of existing member should be analyzed as initial strain on the bonded substrate ε_bi  considering all loads during FRP system installations</li>
+        <li>The presence of curvature in the soffit of concrete member should not exceeds a run of 1.0 m with a rise of 5 mm unless it made flat before strengthening</li>
+        <li>Strength reduction factor is equal to 0.9 for ductile section and concrete steel reinforcement strain ε_s is at least 0.005</li>
+      </ul>
+      <h3>Design Calculation Reference</h3>
+      <p>Calculations procedures and other design assumptions were taken from the sample problems in ACI 440.2R-17 for
+        the following topics:</p>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">Flexural Interior Rectangular Beam</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">Interior Beam with Near-Surface-Mounted FRP Bars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">Flexural Interior Prestressed Rectangular/T-beam</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">Shear Strengthening of an Interior T-beam</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">Shear Strengthening of an Exterior Column</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">Strengthening of a Noncircular Concrete Column for increase in Axial and Bending Forces</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">Flexural and Shear Seismic Strengthening of Shear Walls</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8">
+      <h2>ACI 440.2R-17</h2>
+      <h5>Guide for the Design and Construction of Externally Bonded FRP Systems for Strengthening Concrete Structures</h5>
+      <div class="fakeimg">
+        {% load static %}
+        <img src="{% static 'image/ACI440.jpg' %}" style="width:500px;height:600px;"/>
+      </div>
+      <p>For details, <a href="https://www.concrete.org/store/productdetail.aspx?ItemID=440217&Language=English&Units=US_AND_METRIC">
+        click here</a></p>
+      <p>Fiber-reinforced polymer (FRP) systems for strengthening concrete structures are an alternative to traditional
+        strengthening techniques such as steel plate bonding, section enlargement, and external post-tensioning. FRP
+        strengthening systems use FRP composite materials as supplemental externally-bonded or near-surface-mounted
+        reinforcement. FRP systems offer advantages over traditional strengthening techniques: they are lightweight,
+        relatively easy to install, and noncorroding. Due to the characteristics of FRP materials as well as the
+        behavior of members strengthened with FRP, specific guidance on the use of these systems is needed. This guide
+        offers general information on the history and use of FRP strengthening systems; a description of the material
+        properties of FRP; and recommendations on the engineering, construction, and inspection of FRP systems used to
+        strengthen concrete structures. This guide is based on the knowledge gained from experimental research,
+        analytical work, and field applications of FRP systems used to strengthen concrete structures.</p>
+      <br>
+      <h2>ICRI Guide No. 330.2–2016</h2>
+      <h5>Guide Specifications for Externally Bonded FRP Fabric Systems for Strengthening Concrete Structures</h5>
+      <div class="fakeimg">
+        {% load static %}
+        <img src="{% static 'image/ICRI.jpg' %}" style="width:500px;height:600px;"/>
+      </div>
+      <p>For details, <a href="https://store.icri.org/item/33022016-pdf-guide-specifications-externally-bonded-frp-fabric-systems-strengthening-concrete-structures-342547">
+        click here</a></p>
+      <p>This is the second document in a series of guide specifications prepared by ICRI. The guide specification
+        addresses the requirements for the supply and installation of FRP fabric systems by providing specification
+        text, optional requirements, references, and commentary to allow the user to tailor the document to a specific
+        structural strengthening repair project, and use as a technical specification section in a complete project
+        manual. Both the printed and PDF copies include a Word document with hidden text for easy modification of text
+        to meet specific repair project requirements. Note that the design of the FRP system is outside the scope of
+        these guide specifications. </p>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

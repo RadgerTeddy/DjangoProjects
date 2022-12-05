@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}FRP Project Monitoring{% endblock %}
+
+{% block content %}
+<div class="container pt-3 my-3 border bg-primary text-white" style="margin-top:30px">
+    <form method="post" action="">
+        {% csrf_token %}
+        <h5>PROJECT INFORMATIONS:</h5>
+        {% for field in form.formI %}
+        <div class="row">
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                <sup>{{ field.help_text }}</sup>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+            <div class="col-md-4 pull-left">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row" style="border:0.5px solid white "></div>
+        <h5>PROJECT SUBMITTALS:</h5>
+        {% for field in form.formS %}
+        <div class="row" style="border:0.5px solid white">
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                <sup>{{ field.help_text }}</sup>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+            <div class="col-md-4 pull-left">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row" style="border:0.5px solid white "></div>
+        <h5>QUALITY ASSURANCE:</h5>
+        {% for field in form.formQ %}
+        <div class="row" style="border:0.5px solid white">
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                <sup>{{ field.help_text }}</sup>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+            <div class="col-md-4 pull-left">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row" style="border:0.5px solid white "></div>
+        <h5>EXECUTION:</h5>
+        {% for field in form.formE %}
+        <div class="row" style="border:0.5px solid white">
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                <sup>{{ field.help_text }}</sup>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+            <div class="col-md-4 pull-left">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+    </form>
+</div>
+
+{% endblock content %}

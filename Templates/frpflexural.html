@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}FRP Beam Flexural Design{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top:30px">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Please select FRP Flexural type design:</label>
+        </div>
+        <select name="rec-type" id="rec-type" onchange="location = this.value;">
+            <option value="{% url 'frpflexural' %}" selected>Flexural Interior rect beam</option>
+            <option value="{% url 'frpflexuralA' %}">Interior beam with near-surface-mounted FRP bars</option>
+            <option value="{% url 'frpflexuralB' %}">Flexural Interior prestressed rect/T-beam</option>
+        </select>
+    </div>
+    <div class="fakeimg">
+        {% load static %}
+        <img src="{% static 'image/beam.jpg' %}" style="width:900px;height:300px;"/>
+    </div>
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="row">
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                <sup>{{ field.help_text }}</sup>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+            <div class="col-md-4 pull-left">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-md btn-primary">CALCULATE</button>
+        <br>
+        <center>
+            <div class="container pt-3 my-3 border bg-primary text-white text-center">
+                {% for field in frpBeam %}
+                <p>{{ field }}</p>
+                {% endfor %}
+            </div>
+        </center>
+    </form>
+</div>
+
+{% endblock content %}
